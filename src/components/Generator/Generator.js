@@ -4,13 +4,6 @@ import heroList from "./hero-list";
 
 const randomItem = (items) => items[(items.length * Math.random()) | 0];
 
-function pickRandomProperty(obj) {
-  var result;
-  var count = 0;
-  for (var prop in obj) if (Math.random() < 1 / ++count) result = prop;
-  return result;
-}
-
 class GeneratorBase extends React.Component {
   state = {
     players: [],
@@ -18,7 +11,7 @@ class GeneratorBase extends React.Component {
   };
 
   _textareaUpdate = (e) => {
-    this.setState({ players: e.target.value.split("\n") });
+    this.setState({ players: e.target.value.trim().split("\n") });
   };
 
   _randomizeHeros = () => {
@@ -56,7 +49,7 @@ class GeneratorBase extends React.Component {
     return (
       <div className={this.props.className}>
         <h2>Player List</h2>
-        <textarea onBlur={this._textareaUpdate} />
+        <textarea onBlur={this._textareaUpdate} placeholder="One player per line" />
         <button onClick={this._randomizeHeros}>Randomize Heroes</button>
         {selections && (
           <div>
@@ -82,6 +75,22 @@ const Generator = styled(GeneratorBase)`
     display: block;
     margin: 0 auto;
     font-size: 16px;
+  }
+
+  button {
+    display: inline-block;
+    margin-top: 10px;
+    background: blue;
+    color: white;
+    border: 0;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 6px 25px;
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
+    }
   }
 
   > div {

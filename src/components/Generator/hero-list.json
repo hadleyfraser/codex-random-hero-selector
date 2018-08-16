@@ -1,5 +1,24 @@
 {
-  "white": ["demon", "hero"],
-  "red": ["angle", "archer"],
-  "purple": ["hunter", "elf"]
+  "Red": ["Captain Zane, Anarchy Hero", "Drakk Ramhorn, Blood Hero", "Jaina Stormborne, Fire Hero"],
+  "Green": [
+    "Master Midori, Balance Hero",
+    "Calamandra Moss, Feral Hero",
+    "Argagarg Garg, Growth Hero"
+  ],
+  "Blue": ["Bigby Hayes, Law Hero", "General Onimaru, Peace Hero", "Sirus Quince, Truth Hero"],
+  "Black": [
+    "Vandy Anadrose, Demonology Hero",
+    "Orpal Gloor, Disease Hero",
+    "Garth Torken, Necromancy Hero"
+  ],
+  "White": [
+    "Grave Stormborne, Discipline Hero",
+    "Setsuki Hiruki, Ninjutsu Hero",
+    "Garus Rook, Strength Hero"
+  ],
+  "Purple": [
+    "Vir Garbarean, Future Hero",
+    "Max Geiger, Present Hero",
+    "Prynn Pasternaak, Past Hero"
+  ]
 }

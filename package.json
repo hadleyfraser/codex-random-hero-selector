@@ -2,6 +2,7 @@
   "name": "codex-hero-picker",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://hadleyfraser.com.au/external/codex",
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
