@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import heroList from "./hero-list";
 
-const randomItem = (items) => items[(items.length * Math.random()) | 0];
+const randomItem = items => items[(items.length * Math.random()) | 0];
 
 class GeneratorBase extends React.Component {
   state = {
@@ -10,7 +10,7 @@ class GeneratorBase extends React.Component {
     selections: []
   };
 
-  _textareaUpdate = (e) => {
+  _textareaUpdate = e => {
     this.setState({ players: e.target.value.trim().split("\n") });
   };
 
@@ -28,9 +28,9 @@ class GeneratorBase extends React.Component {
     }
 
     const selections = players
-      .map((player) => {
+      .map(player => {
         const heroColor = randomItem(keys);
-        keys.splice(keys.findIndex((color) => heroColor === color), 1);
+        keys.splice(keys.findIndex(color => heroColor === color), 1);
         return { player, color: heroColor };
       })
       .map(({ player, color }) => {
@@ -49,13 +49,17 @@ class GeneratorBase extends React.Component {
     return (
       <div className={this.props.className}>
         <h2>Player List</h2>
-        <textarea onBlur={this._textareaUpdate} placeholder="One player per line" />
+        <textarea
+          onBlur={this._textareaUpdate}
+          placeholder="One player per line"
+        />
         <button onClick={this._randomizeHeros}>Randomize Heroes</button>
         {selections && (
           <div>
-            {selections.map((selection) => (
-              <div key={selection.player}>
-                <strong>{selection.player}:</strong> {selection.color} - {selection.hero}
+            {selections.map(selection => (
+              <div key={selection.color}>
+                <strong>{selection.player}:</strong> {selection.color} -{" "}
+                {selection.hero}
               </div>
             ))}
           </div>
@@ -68,6 +72,7 @@ class GeneratorBase extends React.Component {
 const Generator = styled(GeneratorBase)`
   width: 800px;
   margin: 0 auto;
+  padding: 0 20px;
 
   textarea {
     width: 400px;
@@ -95,6 +100,22 @@ const Generator = styled(GeneratorBase)`
 
   > div {
     margin-top: 20px;
+
+    div {
+      padding-bottom: 10px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 100%;
+
+    textarea {
+      width: 100%;
+    }
+
+    > div {
+      text-align: left;
+    }
   }
 `;
 
